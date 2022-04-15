@@ -1,0 +1,155 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+body{
+    background-image: url('Form-Bg.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: wheat;
+    font-size:large;
+    font-family:'Times New Roman', Times, serif
+}
+.container{
+    background-color:rgb(28, 20, 58);
+    margin-top: 130px;
+    height: 515px;
+    width: 600px;
+    border-radius:10px;
+    position: relative;
+}
+/* .container .FormGroup1{
+    margin-bottom: 15px;
+    position: relative;
+}
+.FormGroup1 span{
+    font-size: 15px;
+    position: absolute;
+    display: none;
+    top:65px;
+}
+.FormGroup1 input{
+    border:2px solid white;
+}
+.FormGroup1 i{
+    position:absolute ;
+    bottom: 10px;
+    right: 5px;
+    color:red;
+    display: none;
+} 
+.FormGroup1.valid input{
+    border-color:green;
+}
+.FormGroup1.invalid input{
+    border-color:red;
+}
+.FormGroup1.valid i.ion-checkmark-circled{
+    display: inline;
+    color:green;
+}
+.FormGroup1.invalid .ion-android-alert{
+    display: inline;
+    color:red;
+}
+.FormGroup1.invalid span{
+    color: red;
+    display: inline;
+}
+.container>#basic{
+    width: 80%;
+    position: absolute;
+    top:50px;
+    left: 50px;
+}
+#basic input{
+    width: 100%;
+    margin:10px 0;
+    padding: 2px;
+}
+.button-box1 {
+    text-align: center;
+}
+.button-box1 #basic-next{
+    position: relative;
+    bottom: 8px;
+    padding: 5px;
+    width: 70px;
+    border: 0;
+    height: 30px;
+    border-radius: 5px;
+    
+} */
+.container .FormGroup2{
+    margin-bottom: 15px;
+    position: relative;
+}
+.FormGroup2 span{
+    font-size: 15px;
+    position: absolute;
+    display: none;
+    top:60px;
+}
+.FormGroup2 input{
+    border:2px solid white;
+}
+.FormGroup2 i{
+    position:absolute ;
+    bottom: 10px;
+    right: 5px;
+    color:red;
+    display: none;
+} 
+.FormGroup2.valid input{
+    border-color:green;
+}
+.FormGroup2.invalid input{
+    border-color:red;
+}
+.FormGroup1.valid i.ion-checkmark-circled{
+    display: inline;
+    color:green;
+}
+.FormGroup2.invalid .ion-android-alert{
+    display: inline;
+    color:red;
+}
+.FormGroup2.invalid span{
+    color: red;
+    display: inline;
+}
+ .container>#others{
+    width: 80%;
+    position: absolute;
+    top:50px;
+    left: 50px;
+}
+#others input[type="text"],input[type="tel"]{
+    width: 100%;
+    margin:10px 0;
+    padding: 2px;
+}
+#others #state{
+    width: 490px;
+    padding: 2px;
+}
+#state~span{
+    position: relative;
+    top: 10px;
+}
+.button-box2 #others-next{
+    padding: 5px;
+    width: 70px;
+    border: 0;
+    height: 30px;
+    border-radius: 5px;
+}
+.button-box2 #others-prev{
+    padding: 5px;
+    width: 70px;
+    border: 0;
+    height: 30px;
+    border-radius: 5px;
+}
