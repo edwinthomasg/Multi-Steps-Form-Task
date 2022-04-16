@@ -33,39 +33,50 @@ let workPrev = document.getElementById("work-prev")
 let educationPrev = document.getElementById("education-prev")
 let teamPrev = document.getElementById("team-prev")
 
+let progress = document.getElementById("progress")
+
 basicNext.addEventListener('click',()=>{
     form2.style.left="35px"
     form1.style.left="-550px"
+    progress.style.width = "240px"
 })
 othersNext.addEventListener('click',()=>{
     form2.style.left="-550px"
     form3.style.left="60px"
+    progress.style.width = "360px"
 })
 othersPrev.addEventListener('click',()=>{
     form1.style.left="35px"
     form2.style.left="-550px"
+    progress.style.width = "120px"
 })
 workNext.addEventListener('click',()=>{
     form3.style.left="-550px"
     form4.style.left="60px"
+    progress.style.width = "480px"
 })
 workPrev.addEventListener('click',()=>{
     form2.style.left="35px"
     form3.style.left="-550px"
+    progress.style.width = "240px"
 })
 educationNext.addEventListener('click',()=>{
     form4.style.left="-550px"
     form5.style.left="60px"
+    progress.style.width = "600px"
 })
 educationPrev.addEventListener('click',()=>{
     form3.style.left="60px"
     form4.style.left="-550px"
+    progress.style.width = "360px"
 })
 teamNext.addEventListener('click',()=>{
     form5.style.left="-550px"
     success.style.left="60px"
+    progress.style.width = "720px"
 })
 teamPrev.addEventListener('click',()=>{
     form4.style.left="60px"
     form5.style.left="-550px"
+    progress.style.width = "480px"
 })

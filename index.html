@@ -7,24 +7,25 @@
     <title>Multi Step Form</title>
 </head>
 <body>
+    
     <div class="container">
         <form action="" id="basic">
-            <div class="FormGroup1 invalid">
+            <div class="FormGroup1">
                 <label for="">Email</label>
                 <input type="email" id="email" placeholder="Enter your email" required>
                 <span>Email  Required</span>
             </div>
-            <div class="FormGroup1 invalid">
+            <div class="FormGroup1">
                 <label for="">Password</label>
                 <input type="password" id="password" placeholder="Enter your password" required>
                 <span>Email  Required</span>
             </div>
-            <div class="FormGroup1 invalid">
+            <div class="FormGroup1">
                 <label for="">Confirm Password</label>
                 <input type="password" id="confirm-password" placeholder="Confirm your password" required>
                 <span>Email  Required</span>
             </div>
-            <div class="FormGroup1 invalid">
+            <div class="FormGroup1">
                 <label for="">First Name</label>
                 <input type="text" id="first-name" placeholder="Enter your first name" required>
                 <span>Required</span>
@@ -40,14 +41,14 @@
         <form action="" id="others">
             <div class="FormGroup2">
                 <label for="">Birth Date</label>
-                <input type="text" id="dob">
+                <input type="text" id="dob" placeholder="dd/mm/yyyy">
                 <span>Date  Required</span>
             </div>
             <div class="FormGroup2">
                 <label for="">Gender</label>
-                <input type="radio" name="gender" id="male">Male
-                <input type="radio" name="gender" id="female">Female
-                <input type="text" id="gen-value">
+                <input type="radio" value="Male" name="gender" id="male">Male
+                <input type="radio" value="Female" name="gender" id="female">Female
+                <input type="text" id="gen-value" value="">
                 <span>Gender Required</span>
             </div>
             <div class="FormGroup2">
@@ -73,11 +74,11 @@
             </div>
         </form>
        <form action="" id="work">
-           <div class="FormGroup3 invalid">
+           <div class="FormGroup3">
             <label for="">Occupation</label>
             <input type="text" id="occupation">
            </div>
-           <div class="FormGroup3 invalid">
+           <div class="FormGroup3">
                <label for="">Overall Years of Experience</label>
             <input type="text" id="experience">
            </div>
@@ -87,7 +88,7 @@
            </div>
        </form>
        <form action="" id="education">
-           <div class="FormGroup4 invalid">
+           <div class="FormGroup4">
             <label for="">Graduation</label>
             <select id="graduation">
                 <option value="SSLC">SSLC</option>
@@ -95,7 +96,7 @@
                 <option value="BE">BE</option>
             </select>
            </div>
-           <div class="FormGroup4 invalid">
+           <div class="FormGroup4">
                <label for="">Year of Passing</label>
                 <input type="text" id="year-pass" placeholder="mm/yyyy">
                 <span>Field Required</span>
@@ -107,13 +108,13 @@
 
        </form>
        <form action="" id="team">
-           <div class="FormGroup5 invalid">
+           <div class="FormGroup5">
             <label for="">Practice</label>
             <select id="practice">
                 <option value="Choose practice">Choose practice</option>
             </select>
            </div>
-           <div class="FormGroup5 invalid">
+           <div class="FormGroup5">
                <input type="checkbox"> Agree to terms and conditions. <br>
                <span>Check Required</span>
            </div>
@@ -125,6 +126,14 @@
        <div id="response">
         <pre>Thanks for registering.
             Have a nice day ...!</pre>
+       </div>
+       <div class="step-row">
+           <div id="progress"></div>
+           <div class="step-col"><small>Basic</small></div>
+           <div class="step-col"><small>Others</small></div>
+           <div class="step-col"><small>Work</small></div>
+           <div class="step-col"><small>Education</small></div>
+           <div class="step-col"><small>Team</small></div>
        </div>
     </div>
     <script src="script.js"></script>
