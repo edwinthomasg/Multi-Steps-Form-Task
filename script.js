@@ -80,3 +80,50 @@ teamPrev.addEventListener('click',()=>{
     form5.style.left="-550px"
     progress.style.width = "480px"
 })
+
+let basicTab = document.getElementById("basic-tab")
+let othersTab = document.getElementById("others-tab")
+let workTab = document.getElementById("work-tab")
+let educationTab = document.getElementById("education-tab")
+let teamTab = document.getElementById("team-tab")
+
+basicTab.addEventListener('click',()=>{
+    form1.style.left="35px"
+    form2.style.left="-550px"
+    form3.style.left="-550px"
+    form4.style.left="-550px"
+    form5.style.left="-550px"
+    progress.style.width = "120px"
+})
+othersTab.addEventListener('click',()=>{
+    form1.style.left="-550px"
+    form2.style.left="35px"
+    form3.style.left="-550px"
+    form4.style.left="-550px"
+    form5.style.left="-550px"
+    progress.style.width = "240px"
+})
+workTab.addEventListener('click',()=>{
+    form1.style.left="-550px"
+    form2.style.left="-550px"
+    form3.style.left="60px"
+    form4.style.left="-550px"
+    form5.style.left="-550px"
+    progress.style.width = "360px"
+})
+educationTab.addEventListener('click',()=>{
+    form1.style.left="-550px"
+    form2.style.left="-550px"
+    form3.style.left="-550px"
+    form4.style.left="60px"
+    form5.style.left="-550px"
+    progress.style.width = "480px"
+})
+teamTab.addEventListener('click',()=>{
+    form1.style.left="-550px"
+    form2.style.left="-550px"
+    form3.style.left="-550px"
+    form4.style.left="-550px"
+    form5.style.left="60px"
+    progress.style.width = "600px"
+})

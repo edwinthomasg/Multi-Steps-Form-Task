@@ -1,6 +1,7 @@
 *{
     margin: 0%;
     padding: 0%;
+    font-family:'Times New Roman', Times, serif;
 }
 body{
     background-image: url('bg-img.jpg');
@@ -10,7 +11,6 @@ body{
     align-items: center;
     color: wheat;
     font-size:large;
-    font-family:'Times New Roman', Times, serif
 }
 .container{
     overflow: hidden;
@@ -20,6 +20,9 @@ body{
     width: 600px;
     border-radius: 5px ;
     position: relative;
+}
+button,small{
+    cursor: pointer;
 }
 .container .FormGroup1{
     margin-bottom: 15px;
@@ -50,7 +53,7 @@ body{
     position: absolute;
     top:65px;
     left:35px; 
-    background-color: rgb(67, 54, 151);
+    background-color: black;
     border-radius:15px;
     height: 450px;
 }
@@ -91,7 +94,7 @@ body{
     position: absolute;
     top:60px;
     left:-550px; /*left 35*/
-    background-color: rgb(67, 54, 151);
+    background-color: black;
     border-radius:15px;
     height: 450px;
 }
@@ -138,7 +141,7 @@ body{
     height: 30px;
     border-radius: 5px;
     position: relative;
-    bottom:5px;
+    bottom:15px;
     left:400px;
 }
 .button-box2 #others-prev{
@@ -148,7 +151,7 @@ body{
     height: 30px;
     border-radius: 5px;
     position: relative;
-    bottom: 5px;
+    bottom: 15px;
     right: 40px;
 }
 .container .FormGroup3{
@@ -164,7 +167,7 @@ body{
     position: absolute;
     top:80px;
     left:-550px; /*left 60*/
-    background-color: rgb(67, 54, 151);
+    background-color: black;
     border-radius:15px;
     height: 350px;
 }
@@ -213,7 +216,7 @@ body{
     position: absolute;
     top:80px;
     left:-550px; /*left 60*/
-    background-color: rgb(67, 54, 151);
+    background-color: black;
     border-radius:15px;
     height: 350px;
 }
@@ -276,7 +279,7 @@ body{
     position: absolute;
     top:80px;
     left:-550px; /*left 60*/
-    background-color: rgb(67, 54, 151);
+    background-color: black;
     border-radius:15px;
     height: 350px;
 }
@@ -306,7 +309,7 @@ body{
     position: absolute;
     top:80px;
     left:-550px; /*left 60*/
-    background-color: rgb(67, 54, 151);
+    background-color: black;
     border-radius:15px;
     height: 350px;
 }
@@ -328,15 +331,15 @@ body{
 .step-col{
     width: 120px;
     text-align: center;
-    color: rgb(67, 54, 151);
+    color: wheat;
     position: relative;
-    
+    font-size: 22px;
 }
 #progress{
     position: absolute;
     height:100%;
     width: 120px;
-    background-color: rgb(255, 0, 136);
+    background-color: black;
 }
 #progress::after{
     content: '';
@@ -347,5 +350,5 @@ body{
     position:absolute;
     right: -20px;
     top: 0;
-    border-left: 20px solid rgb(255, 0, 136)
+    border-left: 20px solid black;
 }
