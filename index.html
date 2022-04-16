@@ -8,84 +8,124 @@
 </head>
 <body>
     <div class="container">
-        <!-- <form action="" id="basic">
-            <div class="FormGroup1">
+        <form action="" id="basic">
+            <div class="FormGroup1 invalid">
                 <label for="">Email</label>
                 <input type="email" id="email" placeholder="Enter your email" required>
-                <i class="ion-checkmark-circled"></i>
-                  <i class="ion-android-alert"></i>
                 <span>Email  Required</span>
             </div>
             <div class="FormGroup1 invalid">
                 <label for="">Password</label>
                 <input type="password" id="password" placeholder="Enter your password" required>
-                <i class="ion-checkmark-circled"></i>
-                <i class="ion-android-alert"></i>
                 <span>Email  Required</span>
             </div>
             <div class="FormGroup1 invalid">
                 <label for="">Confirm Password</label>
                 <input type="password" id="confirm-password" placeholder="Confirm your password" required>
-                <i class="ion-checkmark-circled"></i>
-                <i class="ion-android-alert"></i>
                 <span>Email  Required</span>
             </div>
             <div class="FormGroup1 invalid">
                 <label for="">First Name</label>
                 <input type="text" id="first-name" placeholder="Enter your first name" required>
-                <i class="ion-checkmark-circled"></i>
-                <i class="ion-android-alert"></i>
                 <span>Required</span>
             </div>
-            <div class="FormGroup1 invalid">
+            <div class="FormGroup1">
                 <label for="">Last Name</label>
                 <input type="text" id="last-name" placeholder="Enter your last name">
             </div>
             <div class="button-box1">
-                <button id="basic-next">Next</button>
+                <button type="button" id="basic-next">Next</button>
             </div>
-        </form> -->
+        </form>
         <form action="" id="others">
-            <div class="FormGroup2 invalid">
+            <div class="FormGroup2">
                 <label for="">Birth Date</label>
                 <input type="text" id="dob">
-                <i class="ion-checkmark-circled"></i>
-                <i class="ion-android-alert"></i>
-                <span>Email  Required</span>
+                <span>Date  Required</span>
             </div>
-            <div class="FormGroup2 invalid">
-                <label for="">Gender</label><br>
+            <div class="FormGroup2">
+                <label for="">Gender</label>
                 <input type="radio" name="gender" id="male">Male
                 <input type="radio" name="gender" id="female">Female
+                <input type="text" id="gen-value">
                 <span>Gender Required</span>
             </div>
-            <div class="FormGroup2 invalid">
+            <div class="FormGroup2">
                 <label for="">State</label>
                 <select id="state">
                     <option value="Choose State">Choose State</option>
                 </select>
-                <i class="ion-checkmark-circled"></i>
-                <i class="ion-android-alert"></i>
                 <span>State Required</span>
             </div>
-            <div class="FormGroup2 invalid">
+            <div class="FormGroup2">
                 <label for="">Phone Number</label>
                 <input type="tel" name="" id="contact">
-                <i class="ion-checkmark-circled"></i>
-                <i class="ion-android-alert"></i>
-                <span>Email  Required</span>
+                <span>Phone  Required</span>
             </div>
             <div class="FormGroup2">
-                <label for="">Address</label>
-                <textarea id="address"></textarea>
+                <label for="">Address</label><br>
+                <textarea id="address" rows="4" cols="50"></textarea>
             </div>
             
             <div class="button-box2">
-                <button id="others-next">Next</button>
-                <button id="others-prev">Previous</button>
+                <button type="button" id="others-next">Next</button>
+                <button type="button" id="others-prev">Previous</button>
             </div>
         </form>
-       
+       <form action="" id="work">
+           <div class="FormGroup3 invalid">
+            <label for="">Occupation</label>
+            <input type="text" id="occupation">
+           </div>
+           <div class="FormGroup3 invalid">
+               <label for="">Overall Years of Experience</label>
+            <input type="text" id="experience">
+           </div>
+           <div class="button-box3">
+            <button type="button" id="work-next">Next</button>
+            <button type="button" id="work-prev">Previous</button>
+           </div>
+       </form>
+       <form action="" id="education">
+           <div class="FormGroup4 invalid">
+            <label for="">Graduation</label>
+            <select id="graduation">
+                <option value="SSLC">SSLC</option>
+                <option value="HSC">HSC</option>
+                <option value="BE">BE</option>
+            </select>
+           </div>
+           <div class="FormGroup4 invalid">
+               <label for="">Year of Passing</label>
+                <input type="text" id="year-pass" placeholder="mm/yyyy">
+                <span>Field Required</span>
+           </div>
+           <div class="button-box4">
+            <button type="button" id="education-next">Next</button>
+            <button type="button" id="education-prev">Previous</button>
+           </div>
+
+       </form>
+       <form action="" id="team">
+           <div class="FormGroup5 invalid">
+            <label for="">Practice</label>
+            <select id="practice">
+                <option value="Choose practice">Choose practice</option>
+            </select>
+           </div>
+           <div class="FormGroup5 invalid">
+               <input type="checkbox"> Agree to terms and conditions. <br>
+               <span>Check Required</span>
+           </div>
+           <div class="button-box5">
+            <button type="button" id="team-prev">Previous</button>
+            <button type="button" id="team-submit">Submit</button>
+           </div>
+       </form>
+       <div id="response">
+        <pre>Thanks for registering.
+            Have a nice day ...!</pre>
+       </div>
     </div>
     <script src="script.js"></script>
 </body>

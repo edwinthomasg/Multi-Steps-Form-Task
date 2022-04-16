@@ -13,14 +13,15 @@ body{
     font-family:'Times New Roman', Times, serif
 }
 .container{
+    overflow: hidden;
     background-color:rgb(28, 20, 58);
     margin-top: 130px;
-    height: 515px;
+    height: 570px;
     width: 600px;
     border-radius:10px;
     position: relative;
 }
-/* .container .FormGroup1{
+.container .FormGroup1{
     margin-bottom: 15px;
     position: relative;
 }
@@ -28,41 +29,29 @@ body{
     font-size: 15px;
     position: absolute;
     display: none;
-    top:65px;
+    top:60px;
 }
 .FormGroup1 input{
     border:2px solid white;
 }
-.FormGroup1 i{
-    position:absolute ;
-    bottom: 10px;
-    right: 5px;
-    color:red;
-    display: none;
-} 
 .FormGroup1.valid input{
     border-color:green;
 }
 .FormGroup1.invalid input{
     border-color:red;
 }
-.FormGroup1.valid i.ion-checkmark-circled{
-    display: inline;
-    color:green;
-}
-.FormGroup1.invalid .ion-android-alert{
-    display: inline;
-    color:red;
-}
 .FormGroup1.invalid span{
     color: red;
     display: inline;
 }
 .container>#basic{
+    padding: 25px;
     width: 80%;
     position: absolute;
-    top:50px;
-    left: 50px;
+    top:40px;
+    left:35px; 
+    background-color: rgb(49, 38, 116);
+    height: 450px;
 }
 #basic input{
     width: 100%;
@@ -74,14 +63,14 @@ body{
 }
 .button-box1 #basic-next{
     position: relative;
-    bottom: 8px;
+    top: 10px;
     padding: 5px;
     width: 70px;
     border: 0;
     height: 30px;
     border-radius: 5px;
     
-} */
+}
 .container .FormGroup2{
     margin-bottom: 15px;
     position: relative;
@@ -95,49 +84,50 @@ body{
 .FormGroup2 input{
     border:2px solid white;
 }
-.FormGroup2 i{
-    position:absolute ;
-    bottom: 10px;
-    right: 5px;
-    color:red;
-    display: none;
-} 
-.FormGroup2.valid input{
-    border-color:green;
-}
-.FormGroup2.invalid input{
-    border-color:red;
-}
-.FormGroup1.valid i.ion-checkmark-circled{
-    display: inline;
-    color:green;
-}
-.FormGroup2.invalid .ion-android-alert{
-    display: inline;
-    color:red;
-}
-.FormGroup2.invalid span{
-    color: red;
-    display: inline;
-}
  .container>#others{
+    padding: 25px;
     width: 80%;
     position: absolute;
-    top:50px;
-    left: 50px;
+    top:40px;
+    left:-550px; /*left 35*/
+    background-color: rgb(49, 38, 116);
+    height: 450px;
 }
 #others input[type="text"],input[type="tel"]{
     width: 100%;
     margin:10px 0;
     padding: 2px;
 }
-#others #state{
+#others textarea{
+    width: 100%;
+    margin:10px 0;
+    border:2px solid white;
+}
+.FormGroup2 #state{
     width: 490px;
     padding: 2px;
+    border:2px solid white;
 }
 #state~span{
     position: relative;
-    top: 10px;
+    top: 5px;
+}
+.FormGroup2.valid input{
+    border-color:green;
+}
+.FormGroup2.invalid input{
+    border-color:red;
+}
+
+.FormGroup2.invalid span{
+    color: red;
+    display: inline;
+}
+.FormGroup2.valid #state{
+    border:2px solid green;
+}
+.FormGroup2.invalid #state{
+    border:2px solid red;
 }
 .button-box2 #others-next{
     padding: 5px;
@@ -145,6 +135,9 @@ body{
     border: 0;
     height: 30px;
     border-radius: 5px;
+    position: relative;
+    bottom:5px;
+    left:400px;
 }
 .button-box2 #others-prev{
     padding: 5px;
@@ -152,4 +145,166 @@ body{
     border: 0;
     height: 30px;
     border-radius: 5px;
+    position: relative;
+    bottom: 5px;
+    right: 40px;
+}
+.container .FormGroup3{
+    margin-bottom: 15px;
+    position: relative;
+}
+.FormGroup3 input{
+    border:2px solid white;
+}
+.container>#work{
+    padding: 25px;
+    width: 70%;
+    position: absolute;
+    top:70px;
+    left:-550px; /*left 60*/
+    background-color: rgb(49, 38, 116);
+    height: 350px;
+}
+#work input{
+    width: 100%;
+    margin:10px 0;
+    padding: 2px;
+}
+.button-box3 #work-next{
+    padding: 5px;
+    width: 70px;
+    border: 0;
+    height: 30px;
+    border-radius: 5px;
+    position: relative;
+    top: 110px;
+    left:300px;
+}
+.button-box3 #work-prev{
+    padding: 5px;
+    width: 70px;
+    border: 0;
+    height: 30px;
+    border-radius: 5px;
+    position: relative;
+    top: 110px;
+    right: 40px;
+}
+.container .FormGroup4{
+    margin-bottom: 15px;
+    position: relative;
+}
+.FormGroup4 span{
+    font-size: 15px;
+    position: absolute;
+    display: none;
+    top:60px;
+}
+.FormGroup4.invalid span{
+    color: red;
+    display: inline;
+}
+.container>#education{
+    padding: 25px;
+    width: 70%;
+    position: absolute;
+    top:70px;
+    left:-550px; /*left 60*/
+    background-color: rgb(49, 38, 116);
+    height: 350px;
+}
+
+.FormGroup4 #graduation{
+    width: 100%;
+    margin:10px 0;
+    padding: 2px;
+}
+#education input{
+    width: 100%;
+    margin:10px 0;
+    padding: 2px;
+}
+.button-box4 #education-next{
+    padding: 5px;
+    width: 70px;
+    border: 0;
+    height: 30px;
+    border-radius: 5px;
+    position: relative;
+    top: 110px;
+    left:300px;
+}
+.button-box4 #education-prev{
+    padding: 5px;
+    width: 70px;
+    border: 0;
+    height: 30px;
+    border-radius: 5px;
+    position: relative;
+    top: 110px;
+    right: 40px;
+}
+.container .FormGroup5{
+    margin-bottom: 15px;
+    position: relative;
+}
+.FormGroup5 span{
+    font-size: 15px;
+    position: absolute;
+    display: none;
+    top:30px;
+}
+.FormGroup5.invalid span{
+    color: red;
+    display: inline;
+}
+#team #practice{
+    width: 100%;
+    margin:10px 0;
+    padding: 2px;
+}
+.container>#team{
+    padding: 25px;
+    width: 70%;
+    position: absolute;
+    top:70px;
+    left:-550px; /*left 60*/
+    background-color: rgb(49, 38, 116);
+    height: 350px;
+}
+.button-box5 #team-submit{
+    padding: 5px;
+    width: 70px;
+    border: 0;
+    height: 30px;
+    border-radius: 5px;
+    position: relative;
+    top: 140px;
+    left:240px;
+}
+.button-box5 #team-prev{
+    padding: 5px;
+    width: 70px;
+    border: 0;
+    height: 30px;
+    border-radius: 5px;
+    position: relative;
+    top: 140px;
+    left: 30px;
+} 
+.container>#response{
+    padding: 25px;
+    width: 70%;
+    position: absolute;
+    top:70px;
+    left:-550px; /*left 60*/
+    background-color: rgb(49, 38, 116);
+    height: 350px;
+}
+#response>pre{
+    text-align: center;
+    position: relative;
+    top: 130px;
+    font-size: 25px;
+    left: -25px;
 }
