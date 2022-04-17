@@ -35,15 +35,36 @@ let teamPrev = document.getElementById("team-prev")
 
 let progress = document.getElementById("progress")
 
-basicNext.addEventListener('click',()=>{
-    form2.style.left="35px"
-    form1.style.left="-550px"
-    progress.style.width = "240px"
+basicNext.addEventListener('click',(event)=>{
+    entry.getEmail()
+    entry.getFirstName()
+    entry.getPassword()
+    entry.getConfirmPassword()
+    entry.validateEmail()
+    entry.validateFirstName()
+    entry.validatePassword()
+    entry.validateConfirmPassword()
+    if(entry.checkBasicValid() == true)
+       {
+        form2.style.left="35px"
+        form1.style.left="-550px"
+        progress.style.width = "240px"
+       }
 })
 othersNext.addEventListener('click',()=>{
-    form2.style.left="-550px"
-    form3.style.left="60px"
-    progress.style.width = "360px"
+    entry.getBirthDate()
+    entry.validateBirthDate()
+    entry.validateGender()
+    entry.getPhoneNumber()
+    entry.validateState()
+    entry.validatePhoneNumber()
+    if(entry.checkOthersValid() == true)
+       {
+        form2.style.left="-550px"
+        form3.style.left="60px"
+       progress.style.width = "360px"
+       }
+    
 })
 othersPrev.addEventListener('click',()=>{
     form1.style.left="35px"
@@ -61,6 +82,7 @@ workPrev.addEventListener('click',()=>{
     progress.style.width = "240px"
 })
 educationNext.addEventListener('click',()=>{
+    entry.validateGraduation()
     form4.style.left="-550px"
     form5.style.left="60px"
     progress.style.width = "600px"
@@ -127,3 +149,268 @@ teamTab.addEventListener('click',()=>{
     form5.style.left="60px"
     progress.style.width = "600px"
 })
+class Registration{
+    alphaRegex=/^[a-zA-Z ]+$/;
+    numberRegex=/^[6789]{1}[\d]{9}$/;
+    emailUserRegex=/^([a-z]+[\.-\d]*)@$/;
+    emailDomainRegex=/^([a-z-]+)\.([a-z\-]{2,8})(\.[a-z]{2,8})?$/;
+    dateRegex=/^(\d{4})\-(0[1-9]|1[0-2])\-(0[1-9]|[12][0-9]|3[01])$/; 
+   user = {
+      firstName: "",
+      email: "",
+      password: "",
+      confirmPassword:"",
+      birthDate:"",
+      phoneNumber:"",
+      firstNameError: "",
+      emailError:"",
+      passwordError:"",
+      confirmPasswordError:"",
+      birthDateError:"",
+      genderError:"",
+      stateError:"",
+      phoneNumberError:"",
+      graduateError:""
+   }
+   getFirstName(){
+      this.user.firstName = document.getElementById("first-name").value.trim();
+   }
+    getEmail(){
+        this.user.email = document.getElementById("email").value.trim();
+    }
+    getPassword(){
+        this.user.password = document.getElementById("password").value.trim();
+    }
+    getConfirmPassword(){
+        this.user.confirmPassword = document.getElementById("confirm-password").value.trim();
+    }
+    getBirthDate(){
+        this.user.birthDate = document.getElementById("dob").value.trim()
+    }
+    getPhoneNumber(){
+        this.user.phoneNumber = document.getElementById("contact").value.trim();
+    }
+   displayBasicErrorMessage(index,message){
+      const form_group = document.getElementsByClassName("FormGroup1")[index];
+      form_group.classList.add("invalid");
+      form_group.getElementsByTagName("span")[0].textContent = message;
+   }
+   removeBasicErrorMessage(index){
+       const form_group = document.getElementsByClassName("FormGroup1")[index];
+       form_group.classList.remove("invalid");
+       form_group.classList.add("valid");
+   }
+   displayOthersErrorMessage(index,message){
+    const form_group = document.getElementsByClassName("FormGroup2")[index];
+    form_group.classList.add("invalid");
+    form_group.getElementsByTagName("span")[0].textContent = message;
+   }
+    removeOthersErrorMessage(index){
+     const form_group = document.getElementsByClassName("FormGroup2")[index];
+     form_group.classList.remove("invalid");
+     form_group.classList.add("valid");
+    }
+    displayEducationErrorMessage(index,message){
+        const form_group = document.getElementsByClassName("FormGroup4")[index];
+        form_group.classList.add("invalid");
+        form_group.getElementsByTagName("span")[0].textContent = message;
+       }
+        removeEducationErrorMessage(index){
+         const form_group = document.getElementsByClassName("FormGroup4")[index];
+         form_group.classList.remove("invalid");
+         form_group.classList.add("valid");
+        }
+   validateFirstName(){
+       if(this.user.firstName == ""){
+           this.user.firstNameError = "Firstname required";
+           this.displayBasicErrorMessage(3,this.user.firstNameError);
+       }
+       else if(this.alphaRegex.test(this.user.firstName) == false){
+           this.user.firstNameError = "Should contain only alphabets";
+           this.displayBasicErrorMessage(3,this.user.firstNameError);
+       }
+       else if(this.user.firstName.length < 3)
+       {
+           this.user.firstNameError = "Should contain atleast 3 letters";
+           this.displayBasicErrorMessage(3,this.user.firstNameError);
+       }
+       else if(this.user.firstName.length > 15)
+       {
+           this.user.firstnameError = "Should not exceed 15 letters";
+           this.displayBasicErrorMessage(3,this.user.firstNameError);
+       }
+       else 
+       {
+           this.removeBasicErrorMessage(3);
+           this.user.firstNameError = "";
+       }
+   }
+   validateEmail(){
+       if(this.user.email == "")
+       {
+          this.user.emailError = "Email id required";
+          this.displayBasicErrorMessage(0,this.user.emailError);
+       }
+       else if(this.emailUserRegex.test(this.user.email.substring(0,(this.user.email.indexOf("@"))+1)) == false){
+          this.user.emailError = "Username should starts with lowercase alphabets followed by digits if any";
+          this.displayBasicErrorMessage(0,this.user.emailError);
+       }
+       else if(this.emailDomainRegex.test(this.user.email.substring((this.user.email.indexOf("@"))+1,this.user.email.length)) == false){
+           this.user.emailError = "Username followed by domain name in lowercased alphabets with extension";
+           this.displayBasicErrorMessage(0,this.user.emailError);
+        }
+        else
+            {
+               this.removeBasicErrorMessage(0);
+               this.user.emailError = "";
+           }
+   }
+   validatePassword(){
+    if(this.user.password == "")
+    {
+       this.user.passwordError = "Password required";
+       this.displayBasicErrorMessage(1,this.user.passwordError);
+    }
+    else
+    {
+        this.removeBasicErrorMessage(1);
+        this.user.passwordError = "";
+    }
+   }
+   validateConfirmPassword(){
+    if(this.user.confirmPassword == "")
+    {
+       this.user.confirmPasswordError = "Confirm Password required";
+       this.displayBasicErrorMessage(2,this.user.confirmPasswordError);
+    }
+    else if(this.user.password != this.user.confirmPassword){
+        this.user.confirmPasswordError = "Password mismatch";
+        this.displayBasicErrorMessage(2,this.user.confirmPasswordError);
+    }
+    else
+    {
+        this.removeBasicErrorMessage(2);
+        this.user.confirmPasswordError = "";
+    }
+   }
+   validateBirthDate(){
+    const current = new Date();
+    const birthDate = new Date(document.getElementById("dob").value.trim());
+    const daysBetween = Math.round((current.getTime() - birthDate.getTime()) / (1000*60*60*24));
+    const age = daysBetween/365;
+    if(this.user.birthDate == "")
+     {
+        this.user.birthDateError = "Birth date required";
+        this.displayOthersErrorMessage(0,this.user.birthDateError);
+     }
+     else if(this.dateRegex.test(this.user.birthDate) == false){
+        this.user.birthDateError = "Invalid date format(yyyy-mm-dd)";
+        this.displayOthersErrorMessage(0,this.user.birthDateError);
+     }
+     else if(age < 20){
+        this.user.birthDateError = "Eligible once you are 20";
+        this.displayOthersErrorMessage(0,this.user.birthDateError);
+     }
+     else
+     {
+         this.removeOthersErrorMessage(0);
+         this.user.birthDateError = "";
+    }
+   }
+   validateGender(){
+       if(document.getElementById("male").checked == true){
+            document.getElementById("gen-value").setAttribute('value',document.getElementById("male").value)
+       }
+       else if(document.getElementById("female").checked == true){
+        document.getElementById("gen-value").setAttribute('value',document.getElementById("female").value)
+       }
+     if((document.getElementById("male").checked == false) && (document.getElementById("female").checked == false))
+       {
+        this.user.genderError = "Gender required";
+        this.displayOthersErrorMessage(1,this.user.genderError);
+       }
+       else{
+        this.removeOthersErrorMessage(1);
+        this.user.genderError = "";
+       }
+   }
+   validateState(){
+       let state = document.getElementById("state")
+       if(state.options[state.selectedIndex].value == "Choose State")
+       {
+        this.user.stateError = "State required";
+        this.displayOthersErrorMessage(2,this.user.stateError);
+       }
+       else{
+        this.removeOthersErrorMessage(2);
+        this.user.stateError = "";
+       }
+   }
+   validatePhoneNumber(){
+    if(this.user.phoneNumber == "")
+    {
+       this.user.phoneNumberError = "Phone number required";
+       this.displayOthersErrorMessage(3,this.user.phoneNumberError);
+    }
+    else if(this.numberRegex.test(this.user.phoneNumber) == false){
+       this.user.phoneNumberError = "starts with 6/7/8/9 and contain only 10 digits";
+       this.displayOthersErrorMessage(3,this.user.phoneNumberError);
+    }
+    else
+        {
+            this.removeOthersErrorMessage(3);
+            this.user.phonenumberError = "";
+       }
+   }
+   validateGraduation(){
+    let graduation = document.getElementById("graduation")
+    if(graduation.options[graduation.selectedIndex].value == "Choose a graduation")
+    {
+     this.user.graduateError = "Graduate required";
+     this.displayEducationErrorMessage(0,this.user.graduateError);
+    }
+    else{
+     this.removeEducationErrorMessage(0);
+     this.user.graduateError = "";
+    }
+}
+   checkBasicValid(){
+       const form_group = document.getElementsByClassName("FormGroup1");
+       let result = true;
+       Array.from(form_group).forEach(element => {
+           if(element.classList.contains("invalid"))
+           result = false;
+       });
+       return result;
+   }
+   checkOthersValid(){
+    const form_group = document.getElementsByClassName("FormGroup2");
+    let result = true;
+    Array.from(form_group).forEach(element => {
+        if(element.classList.contains("invalid"))
+        result = false;
+    });
+    return result;
+   }
+    checkEducationValid(){
+        const form_group = document.getElementsByClassName("FormGroup4");
+        let result = true;
+        Array.from(form_group).forEach(element => {
+            if(element.classList.contains("invalid"))
+            result = false;
+        });
+        return result;
+    }
+    checkTeamValid(){
+        const form_group = document.getElementsByClassName("FormGroup5");
+        let result = true;
+        Array.from(form_group).forEach(element => {
+            if(element.classList.contains("invalid"))
+            result = false;
+        });
+        return result;
+    }
+
+   
+}
+const entry = new Registration();

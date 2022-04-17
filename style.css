@@ -47,6 +47,9 @@ button,small{
     color: red;
     display: inline;
 }
+#last-name{
+    border: 2px solid rgb(255, 217, 0);
+}
 .container>#basic{
     padding: 25px;
     width: 80%;
@@ -106,7 +109,7 @@ button,small{
 #others textarea{
     width: 100%;
     margin:10px 0;
-    border:2px solid white;
+    border:2px solid rgb(255, 217, 0);
 }
 .FormGroup2 #state{
     width: 490px;
@@ -175,6 +178,7 @@ button,small{
     width: 100%;
     margin:10px 0;
     padding: 2px;
+    border:2px solid rgb(255, 217, 0)
 }
 .button-box3 #work-next{
     padding: 5px;
@@ -225,8 +229,11 @@ button,small{
     width: 100%;
     margin:10px 0;
     padding: 2px;
-    padding: 2px;
     border:2px solid white;
+}
+#graduation~span{
+    position: relative;
+    top: 2px;
 }
 #education input{
     width: 100%;
