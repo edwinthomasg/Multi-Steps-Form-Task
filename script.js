@@ -83,9 +83,15 @@ workPrev.addEventListener('click',()=>{
 })
 educationNext.addEventListener('click',()=>{
     entry.validateGraduation()
-    form4.style.left="-550px"
-    form5.style.left="60px"
-    progress.style.width = "600px"
+    entry.getYearPass()
+    entry.validateYearPass()
+    if(entry.checkEducationValid() == true)
+       {
+        form4.style.left="-550px"
+        form5.style.left="60px"
+       progress.style.width = "600px"
+       }
+    
 })
 educationPrev.addEventListener('click',()=>{
     form3.style.left="60px"
@@ -93,9 +99,15 @@ educationPrev.addEventListener('click',()=>{
     progress.style.width = "360px"
 })
 teamNext.addEventListener('click',()=>{
-    form5.style.left="-550px"
-    success.style.left="60px"
-    progress.style.width = "720px"
+    entry.validatePractice()
+    entry.validateTerms()
+    if(entry.checkTeamValid() == true)
+       {
+        form5.style.left="-550px"
+        success.style.left="60px"
+        progress.style.width = "720px"
+       }
+    
 })
 teamPrev.addEventListener('click',()=>{
     form4.style.left="60px"
@@ -162,6 +174,7 @@ class Registration{
       confirmPassword:"",
       birthDate:"",
       phoneNumber:"",
+      yearPass:"",
       firstNameError: "",
       emailError:"",
       passwordError:"",
@@ -170,7 +183,10 @@ class Registration{
       genderError:"",
       stateError:"",
       phoneNumberError:"",
-      graduateError:""
+      graduateError:"",
+      yearPassError:"",
+      practiceError:"",
+      termsError:""
    }
    getFirstName(){
       this.user.firstName = document.getElementById("first-name").value.trim();
@@ -189,6 +205,9 @@ class Registration{
     }
     getPhoneNumber(){
         this.user.phoneNumber = document.getElementById("contact").value.trim();
+    }
+    getYearPass(){
+        this.user.yearPass = document.getElementById("year-pass").value.trim();
     }
    displayBasicErrorMessage(index,message){
       const form_group = document.getElementsByClassName("FormGroup1")[index];
@@ -220,6 +239,16 @@ class Registration{
          form_group.classList.remove("invalid");
          form_group.classList.add("valid");
         }
+        displayTeamErrorMessage(index,message){
+            const form_group = document.getElementsByClassName("FormGroup5")[index];
+            form_group.classList.add("invalid");
+            form_group.getElementsByTagName("span")[0].textContent = message;
+           }
+            removeTeamErrorMessage(index){
+             const form_group = document.getElementsByClassName("FormGroup5")[index];
+             form_group.classList.remove("invalid");
+             form_group.classList.add("valid");
+            }
    validateFirstName(){
        if(this.user.firstName == ""){
            this.user.firstNameError = "Firstname required";
@@ -373,7 +402,42 @@ class Registration{
      this.removeEducationErrorMessage(0);
      this.user.graduateError = "";
     }
-}
+   }
+   validateYearPass(){
+    if(this.user.yearPass == "")
+    {
+       this.user.yearPassError = "Passing year required";
+       this.displayEducationErrorMessage(1,this.user.yearPassError);
+    }
+    else
+        {
+            this.removeEducationErrorMessage(1);
+            this.user.yearPassError = "";
+       }
+   }
+   validatePractice(){
+    let practice = document.getElementById("practice")
+    if(practice.options[practice.selectedIndex].value == "Choose practice")
+    {
+     this.user.practiceError = "Practice required";
+     this.displayTeamErrorMessage(0,this.user.practiceError);
+    }
+    else{
+     this.removeTeamErrorMessage(0);
+     this.user.practiceError = "";
+    }
+   }
+   validateTerms(){
+       if(document.getElementById("terms").checked == false){
+        this.user.termsError = "Please tick the checkbox";
+        this.displayTeamErrorMessage(1,this.user.termsError);
+       }
+       else
+       {
+           this.removeTeamErrorMessage(1);
+           this.user.termsError = "";
+      }
+   }
    checkBasicValid(){
        const form_group = document.getElementsByClassName("FormGroup1");
        let result = true;

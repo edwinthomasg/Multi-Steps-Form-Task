@@ -235,6 +235,16 @@ button,small{
     position: relative;
     top: 2px;
 }
+.FormGroup4.invalid span{
+    color: red;
+    display: inline;
+}
+.FormGroup4.valid #state{
+    border:2px solid green;
+}
+.FormGroup4.valid input{
+    border:2px solid green;
+}
 #education input{
     width: 100%;
     margin:10px 0;
@@ -274,11 +284,18 @@ button,small{
     color: red;
     display: inline;
 }
+#practice~span{
+    position: relative;
+    top: 2px;
+}
 #team #practice{
     width: 100%;
     margin:10px 0;
     padding: 2px;
     border:2px solid white;
+}
+.FormGroup5.valid #practice{
+    border:2px solid green;
 }
 .container>#team{
     padding: 25px;
