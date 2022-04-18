@@ -102,7 +102,13 @@ teamNext.addEventListener('click',()=>{
     entry.validatePractice()
     entry.validateTerms()
     if(entry.checkTeamValid() == true)
-       {
+       {  
+        basicTab.style.display="none"
+        othersTab.style.display="none"
+        workTab.style.display="none"
+        educationTab.style.display="none"
+        teamTab.style.display="none"
+        
         form5.style.left="-550px"
         success.style.left="60px"
         progress.style.width = "720px"
@@ -122,6 +128,7 @@ let educationTab = document.getElementById("education-tab")
 let teamTab = document.getElementById("team-tab")
 
 basicTab.addEventListener('click',()=>{
+    
     form1.style.left="35px"
     form2.style.left="-550px"
     form3.style.left="-550px"
@@ -130,20 +137,42 @@ basicTab.addEventListener('click',()=>{
     progress.style.width = "120px"
 })
 othersTab.addEventListener('click',()=>{
-    form1.style.left="-550px"
-    form2.style.left="35px"
-    form3.style.left="-550px"
-    form4.style.left="-550px"
-    form5.style.left="-550px"
-    progress.style.width = "240px"
+    entry.getEmail()
+    entry.getFirstName()
+    entry.getPassword()
+    entry.getConfirmPassword()
+    entry.validateEmail()
+    entry.validateFirstName()
+    entry.validatePassword()
+    entry.validateConfirmPassword()
+    if(entry.checkBasicValid() == true)
+       {
+        form1.style.left="-550px"
+        form2.style.left="35px"
+        form3.style.left="-550px"
+        form4.style.left="-550px"
+        form5.style.left="-550px"
+        progress.style.width = "240px"
+       }
+   
 })
 workTab.addEventListener('click',()=>{
-    form1.style.left="-550px"
-    form2.style.left="-550px"
-    form3.style.left="60px"
-    form4.style.left="-550px"
-    form5.style.left="-550px"
-    progress.style.width = "360px"
+    entry.getBirthDate()
+    entry.validateBirthDate()
+    entry.validateGender()
+    entry.getPhoneNumber()
+    entry.validateState()
+    entry.validatePhoneNumber()
+    if(entry.checkOthersValid() == true)
+       {
+        form1.style.left="-550px"
+        form2.style.left="-550px"
+        form3.style.left="60px"
+        form4.style.left="-550px"
+        form5.style.left="-550px"
+        progress.style.width = "360px"
+       }
+    
 })
 educationTab.addEventListener('click',()=>{
     form1.style.left="-550px"
@@ -154,19 +183,27 @@ educationTab.addEventListener('click',()=>{
     progress.style.width = "480px"
 })
 teamTab.addEventListener('click',()=>{
-    form1.style.left="-550px"
-    form2.style.left="-550px"
-    form3.style.left="-550px"
-    form4.style.left="-550px"
-    form5.style.left="60px"
-    progress.style.width = "600px"
+    entry.validateGraduation()
+    entry.getYearPass()
+    entry.validateYearPass()
+    if(entry.checkEducationValid() == true)
+       {
+        form1.style.left="-550px"
+        form2.style.left="-550px"
+        form3.style.left="-550px"
+        form4.style.left="-550px"
+        form5.style.left="60px"
+        progress.style.width = "600px"
+       }
+    
 })
 class Registration{
     alphaRegex=/^[a-zA-Z ]+$/;
     numberRegex=/^[6789]{1}[\d]{9}$/;
     emailUserRegex=/^([a-z]+[\.-\d]*)@$/;
     emailDomainRegex=/^([a-z-]+)\.([a-z\-]{2,8})(\.[a-z]{2,8})?$/;
-    dateRegex=/^(\d{4})\-(0[1-9]|1[0-2])\-(0[1-9]|[12][0-9]|3[01])$/; 
+    dateRegex=/^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(\d{4})$/; 
+    yearPassRegex=/^(0[1-9]|1[0-2])\/(\d{4})$/
    user = {
       firstName: "",
       email: "",
@@ -323,17 +360,26 @@ class Registration{
     }
    }
    validateBirthDate(){
+    const extractBirth = this.user.birthDate.split('/')
     const current = new Date();
-    const birthDate = new Date(document.getElementById("dob").value.trim());
-    const daysBetween = Math.round((current.getTime() - birthDate.getTime()) / (1000*60*60*24));
-    const age = daysBetween/365;
+    const yyyy = current.getFullYear();
+    let mm = current.getMonth() + 1; /**month starts from 0 */
+    let dd = current.getDate();
+    if (dd < 10) 
+      dd = '0' + dd;
+    if (mm < 10) 
+      mm = '0' + mm;
+    let currentDate = dd+"/"+mm+"/"+yyyy
+    let extractCurrent = currentDate.split('/')
+    let age = extractCurrent[2] - extractBirth[2]
+   
     if(this.user.birthDate == "")
      {
         this.user.birthDateError = "Birth date required";
         this.displayOthersErrorMessage(0,this.user.birthDateError);
      }
      else if(this.dateRegex.test(this.user.birthDate) == false){
-        this.user.birthDateError = "Invalid date format(yyyy-mm-dd)";
+        this.user.birthDateError = "Invalid date format(dd/mm/yyyy)";
         this.displayOthersErrorMessage(0,this.user.birthDateError);
      }
      else if(age < 20){
@@ -406,8 +452,13 @@ class Registration{
    validateYearPass(){
     if(this.user.yearPass == "")
     {
+        console.log(this.user.yearPass)
        this.user.yearPassError = "Passing year required";
        this.displayEducationErrorMessage(1,this.user.yearPassError);
+    }
+    else if(this.yearPassRegex.test(this.user.yearPass) == false){
+        this.user.yearPassError = "Invalid format (mm/yyyy)";
+        this.displayEducationErrorMessage(1,this.user.yearPassError);
     }
     else
         {

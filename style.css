@@ -15,11 +15,14 @@ body{
 .container{
     overflow: hidden;
     background-color:rgba(213, 209, 232,0.7);
-    margin-top: 130px;
+    margin-top: 160px;
     height: 600px;
     width: 600px;
     border-radius: 5px ;
     position: relative;
+}
+button{
+    background-color:rgba(213, 209, 232,0.7);
 }
 button,small{
     cursor: pointer;
@@ -99,7 +102,7 @@ button,small{
     left:-550px; /*left 35*/
     background-color: black;
     border-radius:15px;
-    height: 450px;
+    height: 470px;
 }
 #others input[type="text"],input[type="tel"]{
     width: 100%;
@@ -118,7 +121,7 @@ button,small{
 }
 #state~span{
     position: relative;
-    top: 5px;
+    top: 3px;
 }
 .FormGroup2.valid input{
     border-color:green;
@@ -375,4 +378,8 @@ button,small{
     right: -20px;
     top: 0;
     border-left: 20px solid black;
+}
+header{
+    position: absolute;
+    top:90px;
 }
