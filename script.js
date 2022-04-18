@@ -175,12 +175,18 @@ workTab.addEventListener('click',()=>{
     
 })
 educationTab.addEventListener('click',()=>{
-    form1.style.left="-550px"
-    form2.style.left="-550px"
-    form3.style.left="-550px"
-    form4.style.left="60px"
-    form5.style.left="-550px"
-    progress.style.width = "480px"
+   
+        if(entry.checkOthersValid() == true)
+        {
+            form1.style.left="-550px"
+            form2.style.left="-550px"
+            form3.style.left="-550px"
+            form4.style.left="60px"
+            form5.style.left="-550px"
+            progress.style.width = "480px"
+        }
+
+    
 })
 teamTab.addEventListener('click',()=>{
     entry.validateGraduation()
@@ -196,6 +202,16 @@ teamTab.addEventListener('click',()=>{
         progress.style.width = "600px"
        }
     
+})
+document.getElementById("male").addEventListener('click',()=>{
+    if(document.getElementById("male").checked == true){
+        document.getElementById("gen-value").setAttribute('value',document.getElementById("male").value)
+   }
+})
+document.getElementById("female").addEventListener('click',()=>{
+    if(document.getElementById("female").checked == true){
+        document.getElementById("gen-value").setAttribute('value',document.getElementById("female").value)
+   }
 })
 class Registration{
     alphaRegex=/^[a-zA-Z ]+$/;
@@ -393,12 +409,6 @@ class Registration{
     }
    }
    validateGender(){
-       if(document.getElementById("male").checked == true){
-            document.getElementById("gen-value").setAttribute('value',document.getElementById("male").value)
-       }
-       else if(document.getElementById("female").checked == true){
-        document.getElementById("gen-value").setAttribute('value',document.getElementById("female").value)
-       }
      if((document.getElementById("male").checked == false) && (document.getElementById("female").checked == false))
        {
         this.user.genderError = "Gender required";
@@ -496,6 +506,7 @@ class Registration{
            if(element.classList.contains("invalid"))
            result = false;
        });
+       console.log("basic valid",result)
        return result;
    }
    checkOthersValid(){
@@ -505,6 +516,7 @@ class Registration{
         if(element.classList.contains("invalid"))
         result = false;
     });
+    console.log("others valid",result)
     return result;
    }
     checkEducationValid(){

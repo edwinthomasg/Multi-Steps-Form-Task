@@ -227,13 +227,6 @@ button,small{
     border-radius:15px;
     height: 350px;
 }
-
-.FormGroup4 #graduation{
-    width: 100%;
-    margin:10px 0;
-    padding: 2px;
-    border:2px solid white;
-}
 #graduation~span{
     position: relative;
     top: 2px;
@@ -242,8 +235,17 @@ button,small{
     color: red;
     display: inline;
 }
-.FormGroup4.valid #state{
+.FormGroup4 #graduation{
+    width: 100%;
+    margin:10px 0;
+    padding: 2px;
+    border:2px solid white;
+}
+.FormGroup4.valid #graduation{
     border:2px solid green;
+}
+.FormGroup4.invalid #graduation{
+    border:2px solid red;
 }
 .FormGroup4.valid input{
     border:2px solid green;
@@ -291,7 +293,7 @@ button,small{
     position: relative;
     top: 2px;
 }
-#team #practice{
+.FormGroup5 #practice{
     width: 100%;
     margin:10px 0;
     padding: 2px;
@@ -299,6 +301,9 @@ button,small{
 }
 .FormGroup5.valid #practice{
     border:2px solid green;
+}
+.FormGroup5.invalid #practice{
+    border:2px solid red;
 }
 .container>#team{
     padding: 25px;
