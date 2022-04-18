@@ -175,7 +175,12 @@ workTab.addEventListener('click',()=>{
     
 })
 educationTab.addEventListener('click',()=>{
-   
+        entry.getBirthDate()
+        entry.validateBirthDate()
+        entry.validateGender()
+        entry.getPhoneNumber()
+        entry.validateState()
+        entry.validatePhoneNumber()
         if(entry.checkOthersValid() == true)
         {
             form1.style.left="-550px"
@@ -462,7 +467,6 @@ class Registration{
    validateYearPass(){
     if(this.user.yearPass == "")
     {
-        console.log(this.user.yearPass)
        this.user.yearPassError = "Passing year required";
        this.displayEducationErrorMessage(1,this.user.yearPassError);
     }
@@ -506,7 +510,6 @@ class Registration{
            if(element.classList.contains("invalid"))
            result = false;
        });
-       console.log("basic valid",result)
        return result;
    }
    checkOthersValid(){
@@ -516,7 +519,6 @@ class Registration{
         if(element.classList.contains("invalid"))
         result = false;
     });
-    console.log("others valid",result)
     return result;
    }
     checkEducationValid(){
